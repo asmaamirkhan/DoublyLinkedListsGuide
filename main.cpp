@@ -21,6 +21,7 @@ class DLinkedList{
     void deleteEnd();
     void addAfterPosition();
     void addBeforePosition();
+    void deletePosition();
 };
 
 void printMenu();
@@ -33,7 +34,7 @@ int main()
         printMenu();
         cin>>option;
         doOperation(option, my_list);
-    }while(option!=8);
+    }while(option!=0);
 
 
 }
@@ -141,9 +142,32 @@ void DLinkedList::addBeforePosition(){
     }
 }
 
+void DLinkedList::deletePosition(){
+    int pos;
+    cout<<"Position: "; cin>>pos;
+    if(head->data == pos){
+        head = head->next;
+    }else if(tail->data == pos){
+        tail->prev->next = NULL;
+        tail = tail->prev;
+    }else{
+        Node * control = new Node();
+        control = head;
+        while(control){
+            if(control->data == pos){
+                control->next->prev = control->prev;
+                control->prev->next = control->next;
+                break;
+            }
+            control = control->next;
+        }
+    }
+    list_size--;
+}
+
 void printMenu(){
     cout<<"Options List:\n1- Add to top\n2- Add to end\n3- Delete top\n"
-    <<"4- Delete end\n5- Add after position\n6- Add before position\n7- Print list\n8- Exit\nYour option: ";
+    <<"4- Delete end\n5- Add after position\n6- Add before position\n7- Delete position\n8- Print list\n0- Exit\nYour option: ";
 }
 
 void doOperation(int option, DLinkedList * some_list){
@@ -160,8 +184,11 @@ void doOperation(int option, DLinkedList * some_list){
         break;
         case 6: some_list->addBeforePosition();
         break;
-        case 7: some_list->printList();
+        case 7: some_list->deletePosition();
         break;
+        case 8: some_list->printList();
+        break;
+        case 0: cout<<"\nBye bye!\n"; break;
         default:
             cout<<"Incorrect input!\n";
     }
