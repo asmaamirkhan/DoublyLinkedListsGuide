@@ -22,6 +22,10 @@ class DLinkedList{
     void addAfterPosition();
     void addBeforePosition();
     void deletePosition();
+    void editData();
+    void swapNodes();
+    void sortList();
+    void clearList();
 };
 
 void printMenu();
@@ -35,8 +39,6 @@ int main()
         cin>>option;
         doOperation(option, my_list);
     }while(option!=0);
-
-
 }
 
 void DLinkedList::printList(){
@@ -165,9 +167,64 @@ void DLinkedList::deletePosition(){
     list_size--;
 }
 
+void DLinkedList::editData(){
+    int pos, new_data;
+    cout<<"Position: "; cin >> pos;
+    cout<<"New data: "; cin >> new_data;
+    Node * control = new Node();
+    control = head;
+    while(control){
+        if(control->data == pos){
+            control->data = new_data;
+            break;
+        }
+        control = control->next;
+    }
+}
+
+void DLinkedList::swapNodes(){ // can be optimized!!!!!!!
+    int pos1, pos2;
+    cout << "First position: "; cin >> pos1;
+    cout << "Second position: "; cin >> pos2;
+    Node * temp1 = new Node();
+    Node * temp2 = new Node();
+    Node * temp = new Node();
+    Node * control = new Node();
+    control = head;
+    while(control){
+        if(control->data == pos1){
+            temp1 = control;
+        }else if(control->data == pos2){
+            temp2 = control;
+        }
+        control=control->next;
+    }
+    temp1->prev->next = temp2;
+    temp1->next->prev = temp2;
+    temp2->prev->next = temp1;
+    temp2->next->prev = temp1;
+    temp = temp1;
+    temp1 = temp2;
+    temp2 = temp;
+    // Resolve error(s)
+}
+
+void DLinkedList::sortList(){
+    Node * control = new Node();
+    control = head; //TODO
+
+}
+
+void DLinkedList::clearList(){
+    head = NULL;
+    tail = NULL;
+    list_size = 0;
+}
+
 void printMenu(){
     cout<<"Options List:\n1- Add to top\n2- Add to end\n3- Delete top\n"
-    <<"4- Delete end\n5- Add after position\n6- Add before position\n7- Delete position\n8- Print list\n0- Exit\nYour option: ";
+    <<"4- Delete end\n5- Add after position\n6- Add before position\n7- Delete position\n"
+    <<"8- Edit data\n9- Swap nodes\n10- Sort list\n11- Clear list\n12- Print list\n0- Exit\nYour option: ";
 }
 
 void doOperation(int option, DLinkedList * some_list){
@@ -186,7 +243,15 @@ void doOperation(int option, DLinkedList * some_list){
         break;
         case 7: some_list->deletePosition();
         break;
-        case 8: some_list->printList();
+        case 8: some_list->editData();
+        break;
+        case 9: some_list->swapNodes();
+        break;
+        case 10: some_list->sortList();
+        break;
+        case 11: some_list->clearList();
+        break;
+        case 12: some_list->printList();
         break;
         case 0: cout<<"\nBye bye!\n"; break;
         default:
