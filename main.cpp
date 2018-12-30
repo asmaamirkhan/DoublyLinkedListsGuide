@@ -206,7 +206,7 @@ void DLinkedList::swapNodes(){ // can be optimized!!!!!!!
     temp = temp1;
     temp1 = temp2;
     temp2 = temp;
-    // Resolve error(s)
+    // Resolve error(s) does not work!!!
 }
 
 void DLinkedList::sortList(){
