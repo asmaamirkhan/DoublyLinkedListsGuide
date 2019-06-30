@@ -182,37 +182,54 @@ void DLinkedList::editData(){
     }
 }
 
-void DLinkedList::swapNodes(){ // can be optimized!!!!!!!
-    int pos1, pos2;
-    cout << "First position: "; cin >> pos1;
-    cout << "Second position: "; cin >> pos2;
-    Node * temp1 = new Node();
-    Node * temp2 = new Node();
-    Node * temp = new Node();
-    Node * control = new Node();
-    control = head;
-    while(control){
-        if(control->data == pos1){
-            temp1 = control;
-        }else if(control->data == pos2){
-            temp2 = control;
-        }
-        control=control->next;
+void DLinkedList::swapNodes(){
+    int x, y;
+    cout << "First value: "; cin >> x;
+    cout << "Second value: "; cin >> y;
+    if (x == y)
+        return;
+    Node *prevX = NULL, *currX = head;
+    while (currX && currX->data != x){
+        prevX = currX;
+        currX = currX->next;
     }
-    temp1->prev->next = temp2;
-    temp1->next->prev = temp2;
-    temp2->prev->next = temp1;
-    temp2->next->prev = temp1;
-    temp = temp1;
-    temp1 = temp2;
-    temp2 = temp;
-    // Resolve error(s) does not work!!!
+    Node *prevY = NULL, *currY = head;
+    while (currY && currY->data != y){
+        prevY = currY;
+        currY = currY->next;
+    }
+    if (currX == NULL || currY == NULL)
+        return;
+    if (prevX != NULL)
+        prevX->next = currY;
+    else
+        head = currY;
+    if (prevY != NULL)
+        prevY->next = currX;
+    else
+        head = currX;
+    Node *temp = currY->next;
+    currY->next = currX->next;
+    currX->next = temp;
 }
 
 void DLinkedList::sortList(){
-    Node * control = new Node();
-    control = head; //TODO
-
+    Node *current = NULL, *index = NULL;
+    int temp;
+    if(head == NULL) {
+        return;
+    }
+    else {
+        for(current = head; current->next != NULL; current = current->next) {
+            for(index = current->next; index != NULL; index = index->next) {
+                if(current->data > index->data) {
+                    temp = current->data;
+                    current->data = index->data;
+                    index->data = temp;
+                }
+            }
+        }
+    }
 }
 
 void DLinkedList::clearList(){
