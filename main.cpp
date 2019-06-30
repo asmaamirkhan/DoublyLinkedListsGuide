@@ -1,3 +1,11 @@
+/*
+ 
+ author: Asmaa ~ 2018
+ 
+ Doubly Linked List Guide C++
+
+*/
+
 #include <iostream>
 
 using namespace std;
