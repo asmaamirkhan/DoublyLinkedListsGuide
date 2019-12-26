@@ -1,11 +1,11 @@
-# Doubly Linked Lists Guide
-A guide that I have prepared which contains all basic operations of doubly linked lists in C++ using object oriented structure.
+# 👷‍♀️ Doubly Linked Lists Guide
+A guide that contains all basic operations of doubly linked lists in C++ using object oriented structure.
 
-## Classes
+## 👜 Classes
 * Node
 * DLinkedList
 
-## Methods
+## 💄 Methods
 * Print List `printList()` 
 * Add to the top of the list `addToTop()`
 * Add to the end of the list `addToEnd()`
@@ -19,9 +19,9 @@ A guide that I have prepared which contains all basic operations of doubly linke
 * Sort list `sortList()`
 * Clear list `clearList()`
 
-## Other Methods
+## 🎈 Other Methods
 * Print operation list `printMenu()`
 * Do wanted operation `doOperation()`
 
-## Contact
+## 🤝 Contact
 Find me on [LinkedIn](https://www.linkedin.com/in/asmaa-mirkhan/) and feel free to mail me, [Asmaa](mailto:asmaamirkhan.am@gmail.com)
