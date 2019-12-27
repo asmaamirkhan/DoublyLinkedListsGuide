@@ -24,4 +24,4 @@ A guide that contains all basic operations of doubly linked lists in C++ using o
 * Do wanted operation `doOperation()`
 
 ## 🤝 Contact
-Find me on [LinkedIn](https://www.linkedin.com/in/asmaa-mirkhan/) and feel free to mail me, [Asmaa](mailto:asmaamirkhan.am@gmail.com)
+Find me on [LinkedIn](https://www.linkedin.com/in/asmaamirkhan/) and feel free to mail me, [Asmaa](mailto:asmaamirkhan.am@gmail.com)
